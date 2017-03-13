@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AppContainer from './components/App';
+import configureStore from './stores/configureStore';
+import {Provider} from 'react-redux'
+// import * as actions from './actions';
 import './index.css';
 
+const store = configureStore();
+
 ReactDOM.render(
-  <App />,
+   <Provider store={store}>
+        <AppContainer />
+    </Provider>,
   document.getElementById('root')
 );
