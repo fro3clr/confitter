@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './components/App';
 import configureStore from './stores/configureStore';
-import {Provider} from 'react-redux'
-// import * as actions from './actions';
+import {Provider} from 'react-redux';
 import './index.css';
 
 const store = configureStore();
