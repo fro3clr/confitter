@@ -10,9 +10,11 @@ const rooms = (state, action) => {
                 'rooms', 'isFetching'
             ], false).mergeIn([
                 'rooms', 'list'
-            ], action.rooms)
+            ], action.rooms);
         case CHOOSE_ROOM:
-            return state.set('choosenRoom', action.rooom_id)
+            return state.setIn([
+                'rooms', 'choosenRoom'
+            ], action.room_id);
         default:
             return state
     }
