@@ -21,16 +21,12 @@ export const receiveUser = (user) => {
 };
 
 const mapJSONToUser = (json) =>  _.pick(_.first(json), [
-    'id',
-    'username',
-    'displayName',
-    'url',
-    'avatarUrlSmall',
+    'id', 'username', 'displayName', 'url', 'avatarUrlSmall',
     'avatarUrlMedium'
 ]);
 
 const fetchUser = () => dispatch => {
-    dispatch(requestUser())
+    dispatch(requestUser());
     fetch(`https://api.gitter.im/v1/user?access_token=${config.token}`)
         .then(response => response.json())
         .then(json => mapJSONToUser(json))

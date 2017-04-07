@@ -19,20 +19,17 @@ export const receiveMessages = (messages) => {
 };
 
 const mapJSONToMessages = (json) => _.map(json, (message) => _.pick(message, [
-    'id',
-    'fromUser',
-    'text'
+    'id', 'fromUser', 'text'
 ]));
 
-const fetchMessages = (state) => dispatch => {
+export const fetchMessages = () => (dispatch, getState) => {
+    const state = getState();
     const roomId = state.getIn(['rooms', 'choosenRoom']);
-    dispatch(requestMessages());
-    fetch(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?limit=50&access_token=${config.token}`)
-        .then(response => response.json())
-        .then(json => mapJSONToMessages(json))
-        .then(messages => dispatch(receiveMessages(messages)))
-};
-
-export const fetchMessagesIfNeeded = () => (dispatch, getState) => {
-  return dispatch(fetchMessages(getState()))
+    if(roomId) {
+        dispatch(requestMessages());
+        fetch(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?limit=50&access_token=${config.token}`)
+            .then(response => response.json())
+            .then(json => mapJSONToMessages(json))
+            .then(messages => dispatch(receiveMessages(messages)))
+    }
 };

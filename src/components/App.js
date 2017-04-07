@@ -6,7 +6,7 @@ import Rooms from './Rooms';
 import Messages from './Messages';
 import {fetchUserIfNeeded} from '../actions/user';
 import {fetchRoomsIfNeeded} from '../actions/rooms';
-import {fetchMessagesIfNeeded} from '../actions/messages';
+import {fetchMessages} from '../actions/messages';
 import {chooseRoom} from '../actions/rooms';
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
                     <User user={this.props.user}/>
                     <Rooms rooms={this.props.rooms}
                            chooseRoom={this.props.chooseRoom}
-                           fetchMessages={this.props.fetchMessagesIfNeeded}
+                           fetchMessages={this.props.fetchMessages}
                     />
                 </div>
                 <div className='content isOpen'>
@@ -43,7 +43,7 @@ const AppContainer = connect(mapStateToProps, {
     chooseRoom,
     fetchUserIfNeeded,
     fetchRoomsIfNeeded,
-    fetchMessagesIfNeeded
+    fetchMessages
 })(App);
 
 export default AppContainer;
