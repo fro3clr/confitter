@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import logo from '../logo.svg';
+import React from 'react';
 import {connect} from 'react-redux';
 import '../App.css';
 import User from './User';
@@ -13,17 +12,20 @@ import {chooseRoom} from '../actions/rooms';
 class App extends React.Component {
     render() {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to Confitter app</h2>
-                </div>
-                <div className="App-content">
+
+            <div className='app wrapper'>
+                <div className='sidebar'>
+                    <div className='title'>
+                        Confitter
+                    </div>
+                    <User user={this.props.user}/>
                     <Rooms rooms={this.props.rooms}
                            chooseRoom={this.props.chooseRoom}
                            fetchMessages={this.props.fetchMessagesIfNeeded}
                     />
-                    <User user={this.props.user}/>
+                </div>
+                <div className='content isOpen'>
+                    <a className='button' />
                     <Messages messages={this.props.messages}/>
                 </div>
             </div>

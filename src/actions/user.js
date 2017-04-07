@@ -39,9 +39,9 @@ const fetchUser = () => dispatch => {
 };
 
 const shouldFetchUser = (state) => {
-    const user = state.get('user')
+    const user = state.get('user');
 
-    return !user || !user.get('isFetching')
+    return !user || !user.get('isFetching');
 };
 
 export const fetchUserIfNeeded = () => (dispatch, getState) => {

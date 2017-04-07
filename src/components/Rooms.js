@@ -7,17 +7,15 @@ const handleClickOnRoom = (chooseRoom, id, fetchMessages) => (event) => {
 };
 
 const Rooms = ({rooms, chooseRoom, fetchMessages}) => (
-    <div className="rooms">
-        <ul className="rooms-list">
+        <ul className="rooms-list nav">
             {rooms
                 ? rooms.get('list').map((room, roomIndex) => (
-                        <button onClick={handleClickOnRoom(chooseRoom, room.get('id'), fetchMessages)} key={room.get('id')}>
+                        <li key={room.get('id')}><a onClick={handleClickOnRoom(chooseRoom, room.get('id'), fetchMessages)}>
                         {room.get('name')}
-                    </button>))
+                    </a></li>))
                 : null
 }
         </ul>
-    </div>
 );
 
 export default Rooms;

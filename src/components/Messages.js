@@ -1,15 +1,15 @@
 import React from 'react';
+import Message from './Message';
 
 const Messages = ({messages}) => (
        <div className="messages">
         <ul className="messages-list">
             {messages
                 ? messages.get('list').map((message, messageIndex) => (
-                    <li>{message.get('text')}</li>
+                   <Message message={message}/>
                 ))
                 : null
             }
-
         </ul>
     </div>
 );
