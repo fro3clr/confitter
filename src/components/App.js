@@ -6,13 +6,12 @@ import Rooms from './Rooms';
 import Messages from './Messages';
 import {fetchUserIfNeeded} from '../actions/user';
 import {fetchRoomsIfNeeded} from '../actions/rooms';
-import {fetchMessages} from '../actions/messages';
+import {fetchMessages, sendMessage} from '../actions/messages';
 import {chooseRoom} from '../actions/rooms';
 
 class App extends React.Component {
     render() {
         return (
-
             <div className='app wrapper'>
                 <div className='sidebar'>
                     <div className='title'>
@@ -26,7 +25,7 @@ class App extends React.Component {
                 </div>
                 <div className='content isOpen'>
                     <a className='button' />
-                    <Messages messages={this.props.messages}/>
+                    <Messages messages={this.props.messages} sendMessage={this.props.sendMessage}/>
                 </div>
             </div>
         );
@@ -43,7 +42,8 @@ const AppContainer = connect(mapStateToProps, {
     chooseRoom,
     fetchUserIfNeeded,
     fetchRoomsIfNeeded,
-    fetchMessages
+    fetchMessages,
+    sendMessage
 })(App);
 
 export default AppContainer;

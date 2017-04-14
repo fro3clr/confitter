@@ -1,0 +1,10 @@
+.messages-list {
+    max-height: 45rem;
+    overflow-y: scroll;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.messages .message textarea {
+    width: 100%;
+}
