@@ -1,10 +1,12 @@
 import fetch from 'isomorphic-fetch'
 import config from '../config/config'
 import _ from 'lodash'
+import {fromJS} from 'immutable'
+
 
 export const REQUEST_MESSAGES = 'REQUEST_MESSAGES';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
-// export const SEND_MESSAGE     = 'SEND_MESSAGE';
+export const ADD_MESSAGE      = 'ADD_MESSAGE';
 
 export const requestMessages = () => {
     return {
@@ -19,6 +21,18 @@ export const receiveMessages = (messages) => {
     }
 };
 
+export const addMessage = (message) => {
+//     message = _.pick(message, [
+//    'id', 'fromUser', 'text'
+// ])
+
+// console.log(message);
+    return {
+        type: ADD_MESSAGE,
+        message
+    }
+}
+
 const mapJSONToMessages = (json) => _.map(json, (message) => _.pick(message, [
     'id', 'fromUser', 'text'
 ]));
@@ -27,7 +41,6 @@ export const sendMessage = (message) => (dispatch, getState) => {
     const state = getState();
     const roomId = state.getIn(['rooms', 'choosenRoom']);
     if(message) {
-        console.log(message);
         fetch(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${config.token}`,
             {
                 method: 'POST',

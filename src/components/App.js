@@ -8,6 +8,7 @@ import {fetchUserIfNeeded} from '../actions/user';
 import {fetchRoomsIfNeeded} from '../actions/rooms';
 import {fetchMessages, sendMessage} from '../actions/messages';
 import {chooseRoom} from '../actions/rooms';
+import {subscribeToMessages} from '../actions/faye';
 
 class App extends React.Component {
     render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Rooms rooms={this.props.rooms}
                            chooseRoom={this.props.chooseRoom}
                            fetchMessages={this.props.fetchMessages}
+                           subscribeToMessages={this.props.subscribeToMessages}
                     />
                 </div>
                 <div className='content isOpen'>
@@ -40,6 +42,7 @@ const mapStateToProps = (state) => state.toObject();
 
 const AppContainer = connect(mapStateToProps, {
     chooseRoom,
+    subscribeToMessages,
     fetchUserIfNeeded,
     fetchRoomsIfNeeded,
     fetchMessages,

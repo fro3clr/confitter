@@ -1,6 +1,6 @@
 import {REQUEST_USER, RECEIVE_USER} from '../actions/user';
 import {REQUEST_ROOMS, RECEIVE_ROOMS, CHOOSE_ROOM} from '../actions/rooms';
-import {REQUEST_MESSAGES, RECEIVE_MESSAGES} from '../actions/messages';
+import {REQUEST_MESSAGES, RECEIVE_MESSAGES, ADD_MESSAGE} from '../actions/messages';
 import user from './user';
 import rooms from './rooms';
 import messages from './messages';
@@ -16,6 +16,7 @@ const rootReducer = (state, action) => {
             return rooms(state, action);
         case RECEIVE_MESSAGES:
         case REQUEST_MESSAGES:
+        case ADD_MESSAGE:
             return messages(state, action);
         default:
             return state
