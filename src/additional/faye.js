@@ -40,11 +40,7 @@ ClientAuthExt.prototype.incoming = function (message, callback) {
 
 // Faye client
 
-const client = new Faye.Client('https://ws.gitter.im/faye', {
-    timeout: 60,
-    retry: 5,
-    interval: 1
-});
+const client = new Faye.Client('https://ws.gitter.im/faye', config.faye);
 
 // Add Client Authentication extension
 client.addExtension(new ClientAuthExt());

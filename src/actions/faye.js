@@ -11,7 +11,6 @@ export const subscribeToMessages = () => (dispatch, getState) => {
     FayeClient.subscribe('/api/v1/rooms/' + roomId + '/chatMessages', function (response) {
         if (response.operation == 'create') {
             dispatch(addMessage(response.model));
-            console.log(state);
         }
     });
 };
