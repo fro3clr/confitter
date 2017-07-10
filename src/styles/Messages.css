@@ -1,5 +1,5 @@
 .messages-list {
-    max-height: 45rem;
+    height: 31rem;
     overflow-y: scroll;
     width: 100%;
     margin-bottom: 2rem;

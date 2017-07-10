@@ -6,14 +6,14 @@ const Message = ({message}) => (
         <div className="post-user">
             <div className="post-user__portrait">
                 <span className="icon fa fa-user-circle-o">
-                    <img src={message.get('fromUser').get('avatarUrlSmall')}/>
+                    <img src={message.fromUser.avatarUrlSmall}/>
                     </span>
             </div>
-            <div className="post-user__name">{message.get('fromUser').get('displayName')}</div>
+            <div className="post-user__name">{message.fromUser.displayName}</div>
         </div>
         <div className="post-body">
             <div className="post-body__content">
-                {message.get('text')}
+                {message.text}
             </div>
             <div className="post-body__date">
                 December 4

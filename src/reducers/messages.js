@@ -1,5 +1,5 @@
 import {fromJS} from 'immutable';
-import {REQUEST_MESSAGES, RECEIVE_MESSAGES, ADD_MESSAGE} from '../actions/messages';
+import {REQUEST_MESSAGES, RECEIVE_MESSAGES, ADD_MESSAGE, ADD_PREVIOUS_MESSAGES} from '../actions/messages';
 
 const messages = (state, action) => {
     switch (action.type) {
@@ -15,6 +15,12 @@ const messages = (state, action) => {
             ], false).mergeIn([
                 'messages', 'list'
             ], action.messages);
+        case ADD_PREVIOUS_MESSAGES:
+            const currentList = state.getIn(['messages', 'list'])
+            const updatedList = fromJS(action.messages).concat(currentList)
+
+            return state.setIn(['messages', 'list'], updatedList)
+
         default:
             return state
     }

@@ -6,7 +6,7 @@ import Rooms from './Rooms';
 import Messages from './Messages';
 import {fetchUserIfNeeded} from '../actions/user';
 import {fetchRoomsIfNeeded} from '../actions/rooms';
-import {fetchMessages, sendMessage} from '../actions/messages';
+import {fetchMessages, sendMessage, loadMoreMessages} from '../actions/messages';
 import {chooseRoom} from '../actions/rooms';
 import {subscribeToMessages} from '../actions/faye';
 
@@ -26,8 +26,10 @@ class App extends React.Component {
                     />
                 </div>
                 <div className='content isOpen'>
-                    <a className='button' />
-                    <Messages messages={this.props.messages} sendMessage={this.props.sendMessage}/>
+                    <a className='button'/>
+                    <Messages messages={this.getMessages()}
+                              sendMessage={this.props.sendMessage}
+                              loadMoreMessages={this.props.loadMoreMessages}/>
                 </div>
             </div>
         );
@@ -35,6 +37,14 @@ class App extends React.Component {
 
     componentWillMount() {
         this.props.fetchUserIfNeeded()
+    }
+
+    getMessages() {
+        const messages = this.props.messages;
+
+        return messages && messages.get('list').size > 0
+            ? messages.toJS().list.reverse()
+            : [];
     }
 }
 
@@ -46,7 +56,8 @@ const AppContainer = connect(mapStateToProps, {
     fetchUserIfNeeded,
     fetchRoomsIfNeeded,
     fetchMessages,
-    sendMessage
+    sendMessage,
+    loadMoreMessages
 })(App);
 
 export default AppContainer;
