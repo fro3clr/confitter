@@ -21,7 +21,7 @@ class App extends React.Component {
                         <a></a>
                     </header>
                     <User user={this.props.user}/>
-                    <Rooms rooms={this.props.rooms}
+                    <Rooms rooms={this.getRooms()}
                            chooseRoom={this.props.chooseRoom}
                            fetchMessages={this.props.fetchMessages}
                            subscribeToMessages={this.props.subscribeToMessages}
@@ -30,6 +30,7 @@ class App extends React.Component {
                 <main>
                     <a className='button'/>
                     <Messages messages={this.getMessages()}
+                              currentRoom={this.getCurrentRoom()}
                               sendMessage={this.props.sendMessage}
                               loadMoreMessages={this.props.loadMoreMessages}/>
                 </main>
@@ -47,6 +48,22 @@ class App extends React.Component {
         return messages && messages.get('list').size > 0
             ? messages.toJS().list.reverse()
             : [];
+    }
+
+    getRooms() {
+        const rooms = this.props.rooms;
+
+        return rooms && rooms.get('list').size > 0
+            ? rooms.toJS().list
+            : [];
+    }
+
+    getCurrentRoom() {
+        const rooms = this.props.rooms;
+
+        return rooms && rooms.get('choosenRoom')
+            ? rooms.get('choosenRoom')
+            : '';
     }
 }
 

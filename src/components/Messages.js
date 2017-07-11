@@ -25,9 +25,9 @@ const mapMessages = (messages) => _.map(messages, message => (
     />
 ));
 
-const Messages = ({messages, sendMessage, loadMoreMessages}) => (
+const Messages = ({messages, currentRoom, sendMessage, loadMoreMessages}) => (
     <div className="messages">
-            <h1>Chat box</h1>
+        <h1>{currentRoom.name}</h1>
         <ul className="messages-list">
             <ChatView
                 className="messages-list"

@@ -14,7 +14,7 @@ const rooms = (state, action) => {
         case CHOOSE_ROOM:
             return state.setIn([
                 'rooms', 'choosenRoom'
-            ], action.room_id);
+            ], action.room);
         default:
             return state
     }

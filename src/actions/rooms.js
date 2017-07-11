@@ -20,10 +20,10 @@ export const receiveRooms = (rooms) => {
     }
 };
 
-export const chooseRoom = (room_id) => {
+export const chooseRoom = (room) => {
     return {
         type: CHOOSE_ROOM,
-        room_id
+        room
     }
 };
 
@@ -43,7 +43,7 @@ const fetchRooms = (state) => dispatch => {
 
             //choose first room, if choosenRoom empty
             if (!state.getIn(['rooms', 'choosenRoom'])) {
-                dispatch(chooseRoom(rooms["0"].id));
+                dispatch(chooseRoom(rooms["0"]));
                 dispatch(fetchMessages());
             }
         });

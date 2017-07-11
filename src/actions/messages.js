@@ -41,7 +41,7 @@ const mapJSONToMessages = (json) => _.map(json, (message) => _.pick(message, [
 
 export const sendMessage = (message) => (dispatch, getState) => {
     const state = getState();
-    const roomId = state.getIn(['rooms', 'choosenRoom']);
+    const roomId = state.getIn(['rooms', 'choosenRoom']).id;
     if (message) {
         fetch(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${config.token}`,
             {
@@ -58,7 +58,8 @@ export const sendMessage = (message) => (dispatch, getState) => {
 
 export const fetchMessages = (limit = 50, beforeId) => (dispatch, getState) => {
     const state = getState();
-    const roomId = state.getIn(['rooms', 'choosenRoom']);
+    const roomId = state.getIn(['rooms', 'choosenRoom']).id;
+
     if (roomId) {
         dispatch(requestMessages());
 
@@ -74,7 +75,7 @@ export const fetchMessages = (limit = 50, beforeId) => (dispatch, getState) => {
 
 export const loadMoreMessages = () => (dispatch, getState) => {
     const state = getState();
-    const roomId = state.getIn(['rooms', 'choosenRoom']);
+    const roomId = state.getIn(['rooms', 'choosenRoom']).id;
     const beforeId = state.getIn(['messages', 'list']).first().get('id');
 
     if (beforeId) {
