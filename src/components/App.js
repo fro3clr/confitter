@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import '../App.css';
+import '../App.scss';
 import User from './User';
 import Rooms from './Rooms';
 import Messages from './Messages';
@@ -14,23 +14,25 @@ class App extends React.Component {
     render() {
         return (
             <div className='app wrapper'>
-                <div className='sidebar'>
-                    <div className='title'>
+                <nav>
+                    <header>
+                        <span></span>
                         Confitter
-                    </div>
+                        <a></a>
+                    </header>
                     <User user={this.props.user}/>
                     <Rooms rooms={this.props.rooms}
                            chooseRoom={this.props.chooseRoom}
                            fetchMessages={this.props.fetchMessages}
                            subscribeToMessages={this.props.subscribeToMessages}
                     />
-                </div>
-                <div className='content isOpen'>
+                </nav>
+                <main>
                     <a className='button'/>
                     <Messages messages={this.getMessages()}
                               sendMessage={this.props.sendMessage}
                               loadMoreMessages={this.props.loadMoreMessages}/>
-                </div>
+                </main>
             </div>
         );
     }

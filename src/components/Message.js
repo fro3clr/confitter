@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Message.css';
+import '../styles/Message.scss';
 
 const Message = ({message}) => (
     <div className="post">

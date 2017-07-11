@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from './Message';
-import '../styles/Messages.css';
+import '../styles/Messages.scss';
 import ChatView from 'react-chatview';
 import _ from 'lodash'
 
@@ -27,6 +27,7 @@ const mapMessages = (messages) => _.map(messages, message => (
 
 const Messages = ({messages, sendMessage, loadMoreMessages}) => (
     <div className="messages">
+            <h1>Chat box</h1>
         <ul className="messages-list">
             <ChatView
                 className="messages-list"

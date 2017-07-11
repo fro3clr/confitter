@@ -9,6 +9,7 @@ const handleClickOnRoom = (chooseRoom, id, fetchMessages, subscribeToMessages) =
 
 const Rooms = ({rooms, chooseRoom, fetchMessages, subscribeToMessages}) => (
         <ul className="rooms-list nav">
+             <li><span>Rooms</span></li>
             {rooms
                 ? rooms.get('list').map((room, roomIndex) => (
                         <li key={room.get('id')}><a onClick={handleClickOnRoom(chooseRoom, room.get('id'), fetchMessages, subscribeToMessages)}>
