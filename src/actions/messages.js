@@ -36,7 +36,7 @@ export const addPreviousMessages = messages => {
 };
 
 const mapJSONToMessages = json =>
-  _.map(json, message => _.pick(message, ["id", "fromUser", "text"]));
+  _.map(json, message => _.pick(message, ["id", "fromUser", "text", "sent"]));
 
 export const sendMessage = message => (dispatch, getState) => {
   const state = getState();

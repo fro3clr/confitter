@@ -1,5 +1,8 @@
 import React from "react";
+import moment from "moment";
 import "../styles/Message.scss";
+
+const formatDate = date => moment(date).format("l, h:mm:ss");
 
 const Message = ({ message }) =>
   <div className="post">
@@ -17,7 +20,9 @@ const Message = ({ message }) =>
       <div className="post-body__content">
         {message.text}
       </div>
-      <div className="post-body__date">December 4</div>
+      <div className="post-body__date">
+        {formatDate(message.sent)}
+      </div>
     </div>
   </div>;
 
