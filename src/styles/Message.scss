@@ -1,81 +1,80 @@
 .post {
-    display: flex;
-    margin-bottom: 5px;
+  display: flex;
+  margin-bottom: 5px;
 }
 
 .post-user {
-    flex: 0 1 auto;
-    padding-bottom: 10px;
-    width: 100px;
+  flex: 0 1 auto;
+  padding-bottom: 10px;
+  width: 100px;
 }
 
 .post-user__portrait {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 90px;
-    font-size: 70px;
-    line-height: 0;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 90px;
+  font-size: 70px;
+  line-height: 0;
 
-.post-user__portrait img {
+  img {
     width: 100%;
+  }
 }
-
 
 .post-user__name {
-    color: #57727C;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
+  color: #57727c;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
 }
 
 .post-body {
-    flex: 1 1 0%;
-    position: relative;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #CAD0D2;
-    border-radius: 4px;
+  flex: 1 1 0%;
+  position: relative;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #cad0d2;
+  border-radius: 4px;
 }
 
 .post-body:after,
 .post-body:before {
-    right: 100%;
-    top: 35px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
+  right: 100%;
+  top: 35px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
 
-.post-body:after {
+  :after {
     border-color: transparent;
     border-right-color: #ffffff;
     border-width: 8px;
     margin-top: -8px;
-}
+  }
 
-.post-body:before {
+  :before {
     border-color: transparent;
-    border-right-color: #CAD0D2;
+    border-right-color: #cad0d2;
     border-width: 9px;
     margin-top: -9px;
+  }
 }
 
 .post-body__content {
-    color: #57727C;
-    font-size: 12px;
+  color: #57727c;
+  font-size: 12px;
 }
 
 .post-body__date {
-    margin-top: 5px;
-    color: #86969C;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  margin-top: 5px;
+  color: #86969c;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
