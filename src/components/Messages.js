@@ -13,7 +13,7 @@ const handleKeyDown = sendMessage => event => {
 };
 
 const onInfiniteLoad = loadMoreMessages => () => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     loadMoreMessages();
     resolve();
   });

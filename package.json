@@ -2,11 +2,15 @@
   "name": "confitter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://fro3clr.github.io/confitter",
   "dependencies": {
+    "express": "^3.21.2",
     "faye": "^1.2.4",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "latest",
     "lodash": "latest",
+    "passport": "^0.3.2",
+    "passport-oauth2": "^1.4.0",
     "react": "15.4.2",
     "react-chatview": "^0.1.1",
     "react-dom": "15.4.2",
@@ -15,11 +19,10 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^2.10.2",
     "redux-thunk": "^2.2.0",
+    "request": "^2.81.0",
     "with-query": "^1.0.2"
   },
   "devDependencies": {
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",
@@ -44,14 +47,18 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.10.0",
     "fs-extra": "0.30.0",
+    "gh-pages": "^1.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
+    "moment": "^2.18.1",
+    "node-sass": "^4.5.3",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
     "react-dev-utils": "^0.5.2",
+    "sass-loader": "^6.0.6",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
@@ -62,7 +69,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy" : "npm run build&&gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
